@@ -26,6 +26,6 @@ class Magazine
     end
   
     def contributing_authors
-      contributors.group_by { |author| author }.select { |author, articles| articles.count > 2 }.keys
+        Article.all.select { |article| article.magazine == self }.map { |article| article.author }.uniq
     end
   end
